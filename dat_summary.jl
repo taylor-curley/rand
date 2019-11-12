@@ -1,4 +1,4 @@
-#=
+"""
 A simple data summary module. It returns the mean, standard deviation,
 and standard error of the mean for any number of dependent and
 independent variables.
@@ -17,7 +17,7 @@ mpg = dataset("ggplot2","mpg")
 
 summary = DataSummary.data_summary(mpg, [:Cty,:Hwy],
                         [:Manufacturer,:Year,:Class])
-=#
+"""
 
 module DataSummary
 export data_summary

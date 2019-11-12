@@ -4,24 +4,28 @@ export data_summary
 using DataFrames, Statistics
 
 """
+    data_summary(data, depvars, groupvars)
+
 A simple data summary module. It returns the mean, standard deviation,
 and standard error of the mean for any number of dependent and
 independent variables.
 
-data = DataFrame
-depvars = Array{::Symbol}
-groupvars = Array{::Symbol}
+# Arguments
+- `data` = `DataFrame`
+- `depvars` = `Array{::Symbol}`
+- `groupvars` = `Array{::Symbol}`
 
+# Example
 Example: Get average miles per gallon in city and highway by Manufacturer,
 Year, and Class.
 
-using RDatasets
-include("./dat_summary.jl")
-
-mpg = dataset("ggplot2","mpg")
-
-summary = DataSummary.data_summary(mpg, [:Cty,:Hwy],
+```data_summary test
+julia> using RDatasets
+julia> include("./dat_summary.jl")
+julia> mpg = dataset("ggplot2","mpg")
+julia> summary = DataSummary.data_summary(mpg, [:Cty,:Hwy],
                         [:Manufacturer,:Year,:Class])
+```
 """
 function data_summary(data, depvars::Array, groupvars::Array)
     outputdf = []
